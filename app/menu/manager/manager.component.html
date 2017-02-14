@@ -10,7 +10,7 @@
         <p>{{selectedCompany.Description}}</p>
     </div>
     <div class="editCompany container">
-        <form *ngIf="selectedCompany" class="form" (ngSubmit)="addProduct(productName.value)">
+        <form *ngIf="selectedCompany" class="form" (ngSubmit)="addProduct(productName.value); productName.value = '';">
             <div class="form-group">
             <label>Add product</label>
             <input type="text" #productName placeholder="Product name" />
