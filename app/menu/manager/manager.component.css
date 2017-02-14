@@ -1,3 +1,14 @@
 .manager {
 
 }
+.editProduct{
+    width: 300px;
+    margin: auto;
+}
+.editCompany{
+    width: 200px;
+    
+}
+label{
+    display: block;
+}

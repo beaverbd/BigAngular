@@ -41,6 +41,9 @@ export class ManagerComponent extends GlobalComponent implements OnInit{
 	removeProduct(product:Product){
 		console.log(product.Name + " remove");
 	}
+	addProduct(productName:string){
+		
+	}
 	ngOnInit(){
 		
 	}
