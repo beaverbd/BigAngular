@@ -1,0 +1,26 @@
+.form-group{
+    margin: 10 auto;
+}
+form{
+    display: block;
+    margin:auto;
+    width: 300px;
+    padding-bottom: 30px;
+}
+.form-control{
+    display: inline-block;
+}
+label{
+    display: inline-block;
+    width: 120px;
+}
+h2{
+    text-align: center;
+}
+input[type=submit]{
+    margin: 10 auto;
+    display: block;
+}
+.input-group-addon{
+    width: 100px;
+}

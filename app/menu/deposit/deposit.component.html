@@ -1,0 +1,12 @@
+<form class="form" (ngSubmit)="deposit(amount.value); amount.value=0;">   
+    <h2>Deposit</h2> 
+     <div class="form-goup">
+        <label>You have: {{currentAmount}}$</label>
+     </div>
+    <div class="form-group">
+        <label>Amount to deposit</label>
+        <input type="number" class="form-control" ([ngModel])="amount" #amount required />
+    </div>
+    <div *ngIf="deposited" class="alert alert-info" role="alert">{{result}}</div>
+    <input [disabled]="inProgress" class="btn btn btn-lg btn-primary btn-block" type="submit" value="Deposit"/>
+</form>

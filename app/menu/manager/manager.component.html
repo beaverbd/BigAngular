@@ -1,0 +1,53 @@
+<div class="container">
+    <h2 class="text">Companies</h2>
+    <div class="btn-group">  
+        <button  *ngFor="let company of companies" type="button" class="btn btn-primary" (click)="selectCompany(company)">{{company.Name}} 
+            <span class="badge">{{company.ProductCount}}</span>
+        </button>  
+    </div>
+    <br/>
+    <div class="container">
+        <button *ngIf="selectedCompany" class="btn">Edit {{selectedCompany.Name}}</button> <br/>
+        <form *ngIf="selectedCompany" class="form" (inSubmit)="addProduct">
+            <div class="form-group">
+            <label>Add product</label>
+            <input type="text" #productName placeholder="Product name" />
+            </div>
+            <input class="btn btn-success" type="submit" value="Add" />    
+        </form>
+    </div>
+
+    <div *ngIf="products" class="">
+        <p>{{selectedCompany.Description}}</p>
+    </div>
+    <div class="products" *ngIf="products">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>In stock</th>
+                    <th>Price</th>
+                    <th>Function</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product.Name}}</td>
+                    <td *ngIf="product.count>0">Exists</td>
+                    <td *ngIf="product.count<=0">Not available</td>
+                    <td>{{product.Price}}</td>
+                    <td>                       
+                        <button (click)="editProduct(product)" class="btn btn-primary" type="button">
+                            Edit
+                        </button>                          
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="buyingProduct" class="buy form-group">
+        <label class="text-center">Count of {{buyingProduct.Name}} to buy</label>
+        <input class="form-control" type="number" #count />
+        <button (click)="confirmBuying(count.value)" class="btn btn-block">Ok</button>
+    </div>
+</div>

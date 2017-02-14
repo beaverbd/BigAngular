@@ -1,0 +1,12 @@
+div#content{
+    margin: 0 auto;
+    width: 60%;
+    min-width: 400px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+div h1{
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    text-align: center;
+}
