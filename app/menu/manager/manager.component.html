@@ -8,7 +8,7 @@
     <br/>
     <div class="container">
         <button *ngIf="selectedCompany" class="btn">Edit {{selectedCompany.Name}}</button> <br/>
-        <form *ngIf="selectedCompany" class="form" (inSubmit)="addProduct">
+        <form *ngIf="selectedCompany" class="form" (ngSubmit)="addProduct(productName.value)">
             <div class="form-group">
             <label>Add product</label>
             <input type="text" #productName placeholder="Product name" />
@@ -28,26 +28,42 @@
                     <th>In stock</th>
                     <th>Price</th>
                     <th>Function</th>
+                    <th>Remove</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let product of products">
                     <td>{{product.Name}}</td>
-                    <td *ngIf="product.count>0">Exists</td>
-                    <td *ngIf="product.count<=0">Not available</td>
+                    <td *ngIf="product.Count>0">Exists</td>
+                    <td *ngIf="product.Count<=0">Not available</td>
                     <td>{{product.Price}}</td>
                     <td>                       
-                        <button (click)="editProduct(product)" class="btn btn-primary" type="button">
+                        <button (click)="selectProduct(product)" class="btn btn-primary" type="button">
                             Edit
                         </button>                          
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" (click)="removeProduct(product)"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div *ngIf="buyingProduct" class="buy form-group">
-        <label class="text-center">Count of {{buyingProduct.Name}} to buy</label>
-        <input class="form-control" type="number" #count />
-        <button (click)="confirmBuying(count.value)" class="btn btn-block">Ok</button>
+    <div *ngIf="selectedProduct" class="buy form">
+        <div class="form-group">
+            <label>Product name</label>
+            <input type="text" value="{{selectedProduct.Name}}" />
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" value="{{selectedProduct.Price}}"/>
+        </div>
+        <div class="form-group">
+            <label>Count</label>
+            <label>{{selectedProduct.Count}}</label>
+            <a class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-minus"></span></a>
+        </div>
+        <button (click)="saveProduct(price.value)" class="btn btn-block">Ok</button>
     </div>
 </div>

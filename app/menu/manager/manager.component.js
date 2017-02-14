@@ -28,6 +28,17 @@ var ManagerComponent = (function (_super) {
     }
     ManagerComponent.prototype.selectCompany = function (company) {
         this.selectedCompany = company;
+        this.dataPeekerSerivce.getCompanyProducts(company.Id)
+            .subscribe(this.setProducts.bind(this));
+    };
+    ManagerComponent.prototype.setProducts = function (products) {
+        this.products = products;
+    };
+    ManagerComponent.prototype.selectProduct = function (product) {
+        this.selectedProduct = product;
+    };
+    ManagerComponent.prototype.removeProduct = function (product) {
+        console.log(product.Name + " remove");
     };
     ManagerComponent.prototype.ngOnInit = function () {
     };

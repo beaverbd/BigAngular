@@ -17,7 +17,8 @@ import { Injector} from '@angular/core';
 export class ManagerComponent extends GlobalComponent implements OnInit{
 	companies:Company[];
 	selectedCompany:Company;
-	
+	products:Product[];
+	selectedProduct:Product;
 	constructor(private dataPeekerSerivce:DataPeekerService, injector:Injector){
 		super(injector);
 		dataPeekerSerivce.getCompaniesAsManager(this.accountService.user.Id)
@@ -26,6 +27,19 @@ export class ManagerComponent extends GlobalComponent implements OnInit{
 
 	selectCompany(company:Company){
 		this.selectedCompany = company;
+		this.dataPeekerSerivce.getCompanyProducts(company.Id)
+		.subscribe(this.setProducts.bind(this));
+	}
+
+	setProducts(products:Product[]){
+		this.products = products;
+	}
+
+	selectProduct(product:Product){
+		this.selectedProduct = product;
+	}
+	removeProduct(product:Product){
+		console.log(product.Name + " remove");
 	}
 	ngOnInit(){
 		
