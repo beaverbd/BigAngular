@@ -62,6 +62,9 @@ export class DataPeekerService{
         .post(this.globals.SiteUrl+'/api/Data/ChangeProduct?Id='+productId+'&name='+name+'&price='+price,"")
         .map(result=>result.json());
     }
+    some(){
+        
+    }
 
  
 } 
