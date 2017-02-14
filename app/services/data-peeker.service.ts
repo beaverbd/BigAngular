@@ -36,5 +36,32 @@ export class DataPeekerService{
         .catch((error)=> new Observable<Product[]>());
     }
 
+    createProduct(productName:string, companyId:number,productPrice:number):Observable<boolean>{
+        return this.http
+        .post(this.globals.SiteUrl + '/api/Data/CreateProduct?productName='+productName + '&companyId='+ companyId+'&productPrice='+productPrice,"")
+        .map(result=>result.json());
+    }
+
+    changeCompany(companyId:number,companyName:string,companyDescription:string):Observable<boolean>{
+        return this.http
+        .post(this.globals.SiteUrl + '/api/Data/ChangeCompany?Id='+companyId+'&Name='+companyName+'&description='+companyDescription,"")
+        .map(result=>result.json());
+    }
+    removeProduct(productId:number):Observable<boolean>{
+        return this.http
+        .post(this.globals.SiteUrl + '/api/Data/RemoveProduct?Id='+productId,"")
+        .map(result=>result.json());
+    }
+    addProductDelivery(productId:number,count:number,title:string):Observable<boolean>{
+        return this.http
+        .post(this.globals.SiteUrl + '/api/Data/ProductDelivery?Id='+ productId+'&count='+count+'&title='+title,"")
+        .map(result=>result.json());
+    }
+    changeProduct(productId:number,name:string,price:number):Observable<boolean>{
+        return this.http
+        .post(this.globals.SiteUrl+'/api/Data/ChangeProduct?Id='+productId+'&name='+name+'&price='+price,"")
+        .map(result=>result.json());
+    }
+
  
 } 
