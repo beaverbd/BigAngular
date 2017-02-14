@@ -5,21 +5,21 @@
             <span class="badge">{{company.ProductCount}}</span>
         </button>  
     </div>
-    <br/>
-    <div class="container">
-        <button *ngIf="selectedCompany" class="btn">Edit {{selectedCompany.Name}}</button> <br/>
-        <form *ngIf="selectedCompany" class="form" (ngSubmit)="addProduct(productName.value)">
+    <button *ngIf="selectedCompany" class="btn">Edit {{selectedCompany.Name}}</button> <br/>
+    <div *ngIf="products" class="">
+        <p>{{selectedCompany.Description}}</p>
+    </div>
+    <div class="editCompany container">
+        <form *ngIf="selectedCompany" class="form" (ngSubmit)="addProduct(productName.value); productName.value = '';">
             <div class="form-group">
             <label>Add product</label>
             <input type="text" #productName placeholder="Product name" />
             </div>
-            <input class="btn btn-success" type="submit" value="Add" />    
+            <input class="btn btn-success btn-block" type="submit" value="Add" />    
         </form>
     </div>
 
-    <div *ngIf="products" class="">
-        <p>{{selectedCompany.Description}}</p>
-    </div>
+   
     <div class="products" *ngIf="products">
         <table class="table table-hover">
             <thead>
@@ -49,21 +49,20 @@
             </tbody>
         </table>
     </div>
-    <div *ngIf="selectedProduct" class="buy form">
+    <div *ngIf="selectedProduct" class="editProduct form">
         <div class="form-group">
             <label>Product name</label>
-            <input type="text" value="{{selectedProduct.Name}}" />
+            <input class="form-control" #pName type="text" value="{{selectedProduct.Name}}" />
         </div>
         <div class="form-group">
             <label>Price</label>
-            <input type="number" value="{{selectedProduct.Price}}"/>
+            <input class="form-control" #pPrice type="number" value="{{selectedProduct.Price}}"/>
         </div>
         <div class="form-group">
-            <label>Count</label>
-            <label>{{selectedProduct.Count}}</label>
+            <label>Count {{selectedProduct.Count}}</label>
             <a class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
             <a class="btn btn-warning"><span class="glyphicon glyphicon-minus"></span></a>
         </div>
-        <button (click)="saveProduct(price.value)" class="btn btn-block">Ok</button>
+        <button (click)="saveProduct(price.value)" class="btn btn-success btn-block">Save</button>
     </div>
 </div>

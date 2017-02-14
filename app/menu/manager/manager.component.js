@@ -40,6 +40,8 @@ var ManagerComponent = (function (_super) {
     ManagerComponent.prototype.removeProduct = function (product) {
         console.log(product.Name + " remove");
     };
+    ManagerComponent.prototype.addProduct = function (productName) {
+    };
     ManagerComponent.prototype.ngOnInit = function () {
     };
     ManagerComponent = __decorate([
