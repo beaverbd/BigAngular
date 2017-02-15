@@ -37,6 +37,31 @@ var DataPeekerService = (function () {
         })
             .catch(function (error) { return new Observable_1.Observable(); });
     };
+    DataPeekerService.prototype.createProduct = function (productName, companyId, productPrice) {
+        return this.http
+            .post(this.globals.SiteUrl + '/api/Data/CreateProduct?productName=' + productName + '&companyId=' + companyId + '&productPrice=' + productPrice, "")
+            .map(function (result) { return result.json(); });
+    };
+    DataPeekerService.prototype.changeCompany = function (companyId, companyName, companyDescription) {
+        return this.http
+            .post(this.globals.SiteUrl + '/api/Data/ChangeCompany?Id=' + companyId + '&Name=' + companyName + '&description=' + companyDescription, "")
+            .map(function (result) { return result.json(); });
+    };
+    DataPeekerService.prototype.removeProduct = function (productId) {
+        return this.http
+            .post(this.globals.SiteUrl + '/api/Data/RemoveProduct?Id=' + productId, "")
+            .map(function (result) { return result.json(); });
+    };
+    DataPeekerService.prototype.addProductDelivery = function (productId, count, title) {
+        return this.http
+            .post(this.globals.SiteUrl + '/api/Data/ProductDelivery?Id=' + productId + '&count=' + count + '&title=' + title, "")
+            .map(function (result) { return result.json(); });
+    };
+    DataPeekerService.prototype.changeProduct = function (productId, name, price) {
+        return this.http
+            .post(this.globals.SiteUrl + '/api/Data/ChangeProduct?Id=' + productId + '&name=' + name + '&price=' + price, "")
+            .map(function (result) { return result.json(); });
+    };
     DataPeekerService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [global_variables_1.Globals, http_1.Http])

@@ -9,15 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Globals = (function () {
-    function Globals() {
-        this.SiteUrl = 'http://localhost:11127';
+var HistoryComponent = (function () {
+    function HistoryComponent() {
     }
-    Globals = __decorate([
-        core_1.Injectable(), 
+    HistoryComponent.prototype.ngOnInit = function () { };
+    HistoryComponent = __decorate([
+        core_1.Component({
+            selector: 'history',
+            templateUrl: './history/history.component.html',
+            styleUrls: ['./history/history.component.css']
+        }), 
         __metadata('design:paramtypes', [])
-    ], Globals);
-    return Globals;
+    ], HistoryComponent);
+    return HistoryComponent;
 }());
-exports.Globals = Globals;
-//# sourceMappingURL=global-variables.js.map
+exports.HistoryComponent = HistoryComponent;
+//# sourceMappingURL=history.component.js.map

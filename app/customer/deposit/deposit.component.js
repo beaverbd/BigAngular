@@ -9,15 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Globals = (function () {
-    function Globals() {
-        this.SiteUrl = 'http://localhost:11127';
+var DepositComponent = (function () {
+    function DepositComponent() {
     }
-    Globals = __decorate([
-        core_1.Injectable(), 
+    DepositComponent.prototype.ngOnInit = function () { };
+    DepositComponent = __decorate([
+        core_1.Component({
+            selector: 'deposit',
+            templateUrl: './deposit/deposit.component.html',
+            styleUrls: ['./deposit/deposit.component.css']
+        }), 
         __metadata('design:paramtypes', [])
-    ], Globals);
-    return Globals;
+    ], DepositComponent);
+    return DepositComponent;
 }());
-exports.Globals = Globals;
-//# sourceMappingURL=global-variables.js.map
+exports.DepositComponent = DepositComponent;
+//# sourceMappingURL=deposit.component.js.map
