@@ -9,15 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Globals = (function () {
-    function Globals() {
-        this.SiteUrl = 'http://localhost:11127';
+var CompaniesComponent = (function () {
+    function CompaniesComponent() {
     }
-    Globals = __decorate([
-        core_1.Injectable(), 
+    CompaniesComponent.prototype.ngOnInit = function () { };
+    CompaniesComponent = __decorate([
+        core_1.Component({
+            selector: 'companies',
+            templateUrl: './companies/companies.component.html',
+            styleUrls: ['./companies/companies.component.css']
+        }), 
         __metadata('design:paramtypes', [])
-    ], Globals);
-    return Globals;
+    ], CompaniesComponent);
+    return CompaniesComponent;
 }());
-exports.Globals = Globals;
-//# sourceMappingURL=global-variables.js.map
+exports.CompaniesComponent = CompaniesComponent;
+//# sourceMappingURL=companies.component.js.map
