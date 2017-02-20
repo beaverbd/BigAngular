@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <a class="navbar-brand">{{title}}</a>
         </div>
-        <ul *ngIf="user.IsAutorized && user.Role =='Customer'" class="nav navbar-nav">
+        <!--<ul *ngIf="user.IsAutorized && user.Role =='Customer'" class="nav navbar-nav">
             <li><a routerLink="menu/customer" routerLinkActive="active">Products</a></li>
             <li><a routerLink="menu/history" routerLinkActive="active">Purchases history</a></li>
             <li><a routerLink="menu/deposit" reouterLinkActive="active">Deposit</a></li>
@@ -11,7 +11,7 @@
          <ul *ngIf="user.IsAutorized && user.Role =='Manager'" class="nav navbar-nav">
             <li><a routerLink="menu/manager" routerLinkActive="active">Companies</a></li>
             <li><a routerLink="menu/history" routerLinkActive="active">Deliver history</a></li>
-        </ul>
+        </ul>-->
         <ul class="nav navbar-nav navbar-right">
             <li *ngIf="!user.IsAutorized"> <a  routerLink="autorization/login" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>Login</a> </li>
             <li *ngIf="!user.IsAutorized"> <a routerLink="autorization/register" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span>Sign Up</a> </li>

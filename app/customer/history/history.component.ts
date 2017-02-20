@@ -1,18 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-
+import { GlobalComponent } from '../../global.component';
+import { Injector} from '@angular/core';
+import { DataPeekerService } from '../../services/data-peeker.service';
+import { AccountService } from '../../services/account.service';
+import { FinanceService } from '../../services/finance.service';
+import { Purchase} from '../../entity/purchase';
 @Component({
-	selector: 'history',
-	templateUrl: './history/history.component.html',
-	styleUrls: ['./history/history.component.css']
+    moduleId:module.id,
+	templateUrl: 'history.component.html',
+	styleUrls: ['history.component.css']
 })
+export class HistoryComponent extends GlobalComponent  implements OnInit{
 
-export class HistoryComponent implements OnInit {
+    history:Purchase[];
 
-	constructor() {
-		
-	 }
+    constructor(private financeService:FinanceService, injector:Injector){
+        super(injector);
+        this.financeService.getUserPurchasesHistory()
+        .subscribe(this.setHistory.bind(this));
+    }
 
-	ngOnInit() {
-		
-	 }
+    setHistory(newHistory:Purchase[]){
+        this.history = newHistory;
+    }
+
+    ngOnInit(){
+
+    }
 }

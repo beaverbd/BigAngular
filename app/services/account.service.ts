@@ -40,11 +40,14 @@ export class AccountService{
     }
 
     userLogin(user:User):void{
-        this.user = user;
         this.subject.next(this.user);
     }
 
-    getLoginStatus(): Observable<User>{
+    loginStatusChanged(): Observable<User>{
         return this.subject.asObservable();
+    }
+
+    getLoginStatus():boolean{
+        return this.user.IsAutorized;
     }
 }

@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var CustomerComponent = (function () {
-    function CustomerComponent() {
-        console.log("CUSTOMER CONSTR");
+var AuthGuard = (function () {
+    function AuthGuard() {
     }
-    CustomerComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: 'customer.component.html',
-            styleUrls: ['customer.component.css']
-        }), 
+    AuthGuard.prototype.canActivate = function () {
+        console.log("Auth coled");
+        return true;
+    };
+    AuthGuard = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], CustomerComponent);
-    return CustomerComponent;
+    ], AuthGuard);
+    return AuthGuard;
 }());
-exports.CustomerComponent = CustomerComponent;
-//# sourceMappingURL=customer.component.js.map
+exports.AuthGuard = AuthGuard;
+//# sourceMappingURL=app-guard.service.js.map

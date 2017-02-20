@@ -1,1 +1,44 @@
-<Label class="companies" text="Hello CompaniesComponent!"></Label>
+<div class="container">
+    <h2 class="text">Companies</h2>
+    <div class="btn-group">  
+        <button  *ngFor="let company of companies" type="button" class="btn btn-primary" (click)="selectCompany(company)">{{company.Name}} 
+            <span class="badge">{{company.ProductCount}}</span>
+        </button>  
+    </div>
+    <div *ngIf="products" class="">
+        <label>About {{selectedCompany.Name}}</label>
+        <p>{{selectedCompany.Description}}</p>
+    </div>
+    <div class="products" *ngIf="products">
+        <h3 class="text">Products</h3>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>In stock</th>
+                    <th>Price</th>
+                    <th>Function</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product.Name}}</td>
+                    <td *ngIf="product.Count>0">Exists</td>
+                    <td *ngIf="product.Count<=0">Not available</td>
+                    <td>{{product.Price}}</td>
+                    <td>                       
+                        <button (click)="selectProduct(product)" class="btn btn-primary" type="button">
+                            Buy
+                        </button>                          
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="buyingProduct" class="buy form-group">
+        <label class="text-center">Count of {{buyingProduct.Name}} to buy</label>
+        <input class="form-control" type="number" #count />
+        <div *ngIf="result" class="alert alert-info" role="alert">{{result}}</div>
+        <button [disabled]="inProgress" (click)="confirmBuying(count.value); count.value=0;" class="btn btn-block">Ok</button>
+    </div>
+</div>

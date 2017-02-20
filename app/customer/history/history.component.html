@@ -1,1 +1,24 @@
-<Label class="history" text="Hello HistoryComponent!"></Label>
+ <div class="history" *ngIf="history">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Product name</th>
+                    <th>Count</th>
+                    <th>Price</th>
+                    <th>Summary</th>
+                    <th>Date</th>
+                    <th>Company name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let purchase of history">
+                    <td>{{purchase.ProductName}}</td>
+                    <td>{{purchase.Count}}</td>
+                    <td>{{purchase.Price}}</td>
+                    <td>{{purchase.Summary}}</td>
+                    <td>{{purchase.Date | date:'medium'}}</td>
+                    <td>{{purchase.CompanyName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

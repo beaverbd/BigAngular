@@ -6,7 +6,7 @@ import { User } from './entity/user';
 @Component({
     moduleId:module.id,
   selector: 'my-app',
-  templateUrl: './app.component.html',
+  templateUrl: 'app.component.html',
   styleUrls:['app.component.css'] 
 })
 export class AppComponent implements OnInit {
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.user = this.accountservice.user;
-    this.accountservice.getLoginStatus()
+    this.accountservice.loginStatusChanged()
     .subscribe(this.loginChanged.bind(this));
   }
 

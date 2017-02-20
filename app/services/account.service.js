@@ -45,11 +45,13 @@ var AccountService = (function () {
         }, function (error) { return console.log(error); });
     };
     AccountService.prototype.userLogin = function (user) {
-        this.user = user;
         this.subject.next(this.user);
     };
-    AccountService.prototype.getLoginStatus = function () {
+    AccountService.prototype.loginStatusChanged = function () {
         return this.subject.asObservable();
+    };
+    AccountService.prototype.getLoginStatus = function () {
+        return this.user.IsAutorized;
     };
     AccountService = __decorate([
         core_1.Injectable(), 

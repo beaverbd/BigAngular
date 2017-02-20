@@ -19,7 +19,7 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         this.user = this.accountservice.user;
-        this.accountservice.getLoginStatus()
+        this.accountservice.loginStatusChanged()
             .subscribe(this.loginChanged.bind(this));
     };
     AppComponent.prototype.loginChanged = function (user) {
@@ -39,7 +39,7 @@ var AppComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            templateUrl: './app.component.html',
+            templateUrl: 'app.component.html',
             styleUrls: ['app.component.css']
         }), 
         __metadata('design:paramtypes', [account_service_1.AccountService, router_1.Router])

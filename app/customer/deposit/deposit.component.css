@@ -1,3 +1,10 @@
-.deposit {
-
+.form{
+    width:300px;
+    margin:auto;
+}
+h2{
+    text-align: center;
+}
+.deposit{
+    width:80%;
 }
