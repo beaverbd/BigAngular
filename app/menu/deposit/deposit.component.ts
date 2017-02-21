@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalComponent } from '../../global.component';
 import { Injector} from '@angular/core';
 import { DataPeekerService } from '../../services/data-peeker.service';
 import { AccountService } from '../../services/account.service';
@@ -10,15 +9,14 @@ import { FinanceService } from '../../services/finance.service';
 	templateUrl: 'deposit.component.html',
 	styleUrls: ['deposit.component.css']
 })
-export class DepositComponent extends GlobalComponent  implements OnInit{
+export class DepositComponent implements OnInit{
 
     currentAmount:number;
     deposited:boolean= false;
     inProgress:boolean = false;
     amount:number=0;
     result:string;
-    constructor(private financeService:FinanceService, injector:Injector){
-        super(injector);
+    constructor(private financeService:FinanceService, private accountService:AccountService){
         financeService.getUserMoney()
         .subscribe(this.setMoney.bind(this));
     }

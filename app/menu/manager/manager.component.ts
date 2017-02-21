@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalComponent } from '../../global.component';
 import { Router } from '@angular/router';
 import { AccountService } from '../../services/account.service';
 import { Company } from '../../entity/company';
@@ -14,13 +13,12 @@ import { Injector} from '@angular/core';
 	styleUrls: ['manager.component.css']
 })
 
-export class ManagerComponent extends GlobalComponent implements OnInit{
+export class ManagerComponent implements OnInit{
 	companies:Company[];
 	selectedCompany:Company;
 	products:Product[];
 	selectedProduct:Product;
-	constructor(private dataPeekerSerivce:DataPeekerService, injector:Injector){
-		super(injector);
+	constructor(private dataPeekerSerivce:DataPeekerService, private accountService:AccountService){
 		dataPeekerSerivce.getCompaniesAsManager(this.accountService.user.Id)
 		.subscribe(result=>this.companies=result);
 	}

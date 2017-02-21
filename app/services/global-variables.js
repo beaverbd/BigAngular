@@ -11,7 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var Globals = (function () {
     function Globals() {
-        this.SiteUrl = 'http://localhost:11127';
+        //public SiteUrl:string = 'http://localhost:11127';
+        this.SiteUrl = 'http://forangular.azurewebsites.net';
     }
     Globals = __decorate([
         core_1.Injectable(), 

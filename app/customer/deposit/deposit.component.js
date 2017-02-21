@@ -1,9 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,14 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var global_component_1 = require('../../global.component');
-var core_2 = require('@angular/core');
+var account_service_1 = require('../../services/account.service');
 var finance_service_1 = require('../../services/finance.service');
-var DepositComponent = (function (_super) {
-    __extends(DepositComponent, _super);
-    function DepositComponent(financeService, injector) {
-        _super.call(this, injector);
+var DepositComponent = (function () {
+    function DepositComponent(financeService, accountService) {
         this.financeService = financeService;
+        this.accountService = accountService;
         this.deposited = false;
         this.inProgress = false;
         this.amount = 0;
@@ -56,9 +49,9 @@ var DepositComponent = (function (_super) {
             templateUrl: 'deposit.component.html',
             styleUrls: ['deposit.component.css']
         }), 
-        __metadata('design:paramtypes', [finance_service_1.FinanceService, core_2.Injector])
+        __metadata('design:paramtypes', [finance_service_1.FinanceService, account_service_1.AccountService])
     ], DepositComponent);
     return DepositComponent;
-}(global_component_1.GlobalComponent));
+}());
 exports.DepositComponent = DepositComponent;
 //# sourceMappingURL=deposit.component.js.map

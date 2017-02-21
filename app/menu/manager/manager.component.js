@@ -1,9 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,15 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var global_component_1 = require('../../global.component');
+var account_service_1 = require('../../services/account.service');
 var data_peeker_service_1 = require('../../services/data-peeker.service');
-var core_2 = require('@angular/core');
-var ManagerComponent = (function (_super) {
-    __extends(ManagerComponent, _super);
-    function ManagerComponent(dataPeekerSerivce, injector) {
+var ManagerComponent = (function () {
+    function ManagerComponent(dataPeekerSerivce, accountService) {
         var _this = this;
-        _super.call(this, injector);
         this.dataPeekerSerivce = dataPeekerSerivce;
+        this.accountService = accountService;
         dataPeekerSerivce.getCompaniesAsManager(this.accountService.user.Id)
             .subscribe(function (result) { return _this.companies = result; });
     }
@@ -51,9 +44,9 @@ var ManagerComponent = (function (_super) {
             templateUrl: 'manager.component.html',
             styleUrls: ['manager.component.css']
         }), 
-        __metadata('design:paramtypes', [data_peeker_service_1.DataPeekerService, core_2.Injector])
+        __metadata('design:paramtypes', [data_peeker_service_1.DataPeekerService, account_service_1.AccountService])
     ], ManagerComponent);
     return ManagerComponent;
-}(global_component_1.GlobalComponent));
+}());
 exports.ManagerComponent = ManagerComponent;
 //# sourceMappingURL=manager.component.js.map

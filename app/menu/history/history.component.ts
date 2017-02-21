@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalComponent } from '../../global.component';
 import { Injector} from '@angular/core';
 import { DataPeekerService } from '../../services/data-peeker.service';
 import { AccountService } from '../../services/account.service';
@@ -11,12 +10,11 @@ import { Purchase} from '../../entity/purchase';
 	templateUrl: 'history.component.html',
 	styleUrls: ['history.component.css']
 })
-export class HistoryComponent extends GlobalComponent  implements OnInit{
+export class HistoryComponent implements OnInit{
 
     history:Purchase[];
 
-    constructor(private financeService:FinanceService, injector:Injector){
-        super(injector);
+    constructor(private financeService:FinanceService){
         this.financeService.getUserPurchasesHistory()
         .subscribe(this.setHistory.bind(this));
     }

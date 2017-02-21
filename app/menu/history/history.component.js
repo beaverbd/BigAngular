@@ -1,9 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,13 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var global_component_1 = require('../../global.component');
-var core_2 = require('@angular/core');
 var finance_service_1 = require('../../services/finance.service');
-var HistoryComponent = (function (_super) {
-    __extends(HistoryComponent, _super);
-    function HistoryComponent(financeService, injector) {
-        _super.call(this, injector);
+var HistoryComponent = (function () {
+    function HistoryComponent(financeService) {
         this.financeService = financeService;
         this.financeService.getUserPurchasesHistory()
             .subscribe(this.setHistory.bind(this));
@@ -37,9 +28,9 @@ var HistoryComponent = (function (_super) {
             templateUrl: 'history.component.html',
             styleUrls: ['history.component.css']
         }), 
-        __metadata('design:paramtypes', [finance_service_1.FinanceService, core_2.Injector])
+        __metadata('design:paramtypes', [finance_service_1.FinanceService])
     ], HistoryComponent);
     return HistoryComponent;
-}(global_component_1.GlobalComponent));
+}());
 exports.HistoryComponent = HistoryComponent;
 //# sourceMappingURL=history.component.js.map

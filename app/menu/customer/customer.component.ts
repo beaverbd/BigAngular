@@ -6,7 +6,6 @@ import { Injector} from '@angular/core';
 import { Company } from '../../entity/company';
 import { Product } from '../../entity/product';
 import { AccountService } from '../../services/account.service';
-import { GlobalComponent } from '../../global.component';
 import { FinanceService } from '../../services/finance.service';
 
 @Component({
@@ -16,7 +15,7 @@ import { FinanceService } from '../../services/finance.service';
 	styleUrls: ['customer.component.css']
 })
 
-export class CustomerComponent extends GlobalComponent  implements OnInit {
+export class CustomerComponent implements OnInit {
 
 	companies:Company[];
 	selectedCompany:Company;
@@ -25,8 +24,8 @@ export class CustomerComponent extends GlobalComponent  implements OnInit {
 	count:number = 0;
 	inProgress:boolean=false;
 	result:string;
-	constructor(private dataPeekerService:DataPeekerService,private financeservice:FinanceService, injector:Injector) { 
-		super(injector);
+	constructor(private dataPeekerService:DataPeekerService,private financeservice:FinanceService, 
+	private accountService:AccountService) { 
 		this.dataPeekerService.getCompanies()
 		.subscribe(result=>{
 			console.log("!!!");
